@@ -1,0 +1,489 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none !important;
+}
+
+:root {
+    --blue: #e4ecf7;
+    --red: #ff3838;
+    --shadow-color: 0deg 0% 39%;
+    --shadow-elevation-low: 0px 0.2px 0.2px hsl(var(--shadow-color) / 0.44), 0px 0.3px 0.3px -1.4px hsl(var(--shadow-color) / 0.4), 0px 0.8px 0.9px -2.8px hsl(var(--shadow-color) / 0.37);
+    --shadow-elevation-medium: 0px 0.2px 0.2px hsl(var(--shadow-color) / 0.46), 0px 0.6px 0.6px -0.9px hsl(var(--shadow-color) / 0.43), 0px 1.5px 1.6px -1.9px hsl(var(--shadow-color) / 0.41), 0.1px 3.8px 4.1px -2.8px hsl(var(--shadow-color) / 0.38);
+    --shadow-elevation-high: 0px 0.2px 0.2px hsl(var(--shadow-color) / 0.43), 0px 1px 1.1px -0.4px hsl(var(--shadow-color) / 0.42), 0.1px 1.9px 2px -0.8px hsl(var(--shadow-color) / 0.4), 0.1px 3.3px 3.5px -1.2px hsl(var(--shadow-color) / 0.39), 0.1px 5.4px 5.8px -1.6px hsl(var(--shadow-color) / 0.38), 0.2px 8.7px 9.3px -2px hsl(var(--shadow-color) / 0.36), 0.4px 13.4px 14.4px -2.4px hsl(var(--shadow-color) / 0.35), 0.5px 20px 21.5px -2.8px hsl(var(--shadow-color) / 0.34);
+}
+
+.red {
+    color: var(--red);
+}
+
+.nunito {
+    font-family: Nunito;
+}
+
+.modern {
+    font-family: Modern;
+}
+
+@font-face {
+    src: url(../fonts/Nunito.ttf);
+    font-family: Nunito;
+}
+
+@font-face {
+    src: url(../fonts/Modern.ttf);
+    font-family: Modern;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+
+
+/*********Main CSS starts here Onwards********/
+
+.navigation {
+    min-height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    font-family: Nunito;
+    width: 100%;
+    font-size: 20px;
+    min-height: 80px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(47, 113, 212, 0.05)!important;
+    transition: 1s cubic-bezier(.17, .67, .16, .99);
+    box-shadow: var(--shadow-elevation-medium);
+    z-index: 999;
+}
+
+.navbar-light {
+    background-color: rgba(47, 113, 212, 0.05)!important;
+}
+
+.dark-background {
+    background-color: rgba(162, 197, 250, 1)!important;
+    transform: 1s;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+
+/************************************
+Animation for Navbar Toggle in Mobile
+************************************/
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.active .span1 {
+    animation: ease .7s top forwards;
+}
+
+.not-active .span1 {
+    animation: ease .7s top-2 forwards;
+}
+
+.active .span2 {
+    animation: ease .7s zoom-out forwards;
+}
+
+.not-active .span2 {
+    animation: ease .7s zoom-in forwards;
+}
+
+.active .span3 {
+    animation: ease .7s bottom forwards;
+}
+
+.not-active .span3 {
+    animation: ease .7s bottom-2 forwards;
+}
+
+@keyframes top {
+    0% {
+        top: 0;
+        transform: rotate(0);
+    }
+    50% {
+        top: 22px;
+        transform: rotate(0);
+    }
+    100% {
+        top: 26px;
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes top {
+    0% {
+        top: 0;
+        transform: rotate(0);
+    }
+    50% {
+        top: 13px;
+        transform: rotate(0);
+    }
+    100% {
+        top: 13px;
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes top-2 {
+    0% {
+        top: 13px;
+        transform: rotate(135deg);
+    }
+    50% {
+        top: 13px;
+        transform: rotate(0);
+    }
+    100% {
+        top: 0;
+        transform: rotate(0);
+    }
+}
+
+@keyframes bottom {
+    0% {
+        bottom: 0;
+        transform: rotate(0);
+    }
+    50% {
+        bottom: 10px;
+        transform: rotate(0);
+    }
+    100% {
+        bottom: 12px;
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes bottom-2 {
+    0% {
+        bottom: 10px;
+        transform: rotate(45deg);
+    }
+    50% {
+        bottom: 10px;
+        transform: rotate(0);
+    }
+    100% {
+        bottom: 0;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes zoom-out {
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0)
+    }
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.menu-icon span {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-radius: 9px;
+    height: 9px;
+    background: var(--red);
+    transition: all .3s;
+    margin: 8% 0;
+}
+
+
+/***********************************
+NavBar CSS Ends
+*************************************/
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background: url(../img/gradient.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    align-content: center;
+    /*
+	background: rgb(178,205,235);
+	background: linear-gradient(90deg, rgba(178,205,235,1) 0%, rgba(154,224,241,1) 100%);*/
+}
+
+.banner .container {
+    align-items: center;
+    align-content: center;
+}
+
+.row {
+    align-items: center;
+}
+
+.banner-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.banner-content .banner-text {
+    font-family: Modern;
+    font-size: 60px;
+    text-align: center;
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 40px;
+    float: left;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    padding: 0px 5px;
+    border: var(--red) solid 1px;
+}
+
+.form-control {
+    border: none;
+    box-decoration-break: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.form-control:focus,
+.form-control:active {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.search-btn {
+    width: 38px;
+    height: 38px;
+    background-color: gray;
+    padding: 7px;
+    border-radius: 50%;
+    float: right;
+    display: flex
+}
+
+.banner-image {
+    max-width: 700px;
+    align-items: center;
+    text-align: center;
+}
+
+
+/*********************************
+Banner Divider CSS Starts
+*********************************/
+
+.custom-shape-divider-bottom-1638802049 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1638802049 svg {
+    position: relative;
+    display: block;
+    width: calc(119% + 1.3px);
+    height: 219px;
+}
+
+.custom-shape-divider-bottom-1638802049 .shape-fill {
+    fill: #fff;
+}
+
+
+/** For mobile devices **/
+
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1638802049 svg {
+        width: calc(119% + 1.3px);
+        height: 120px;
+    }
+}
+
+
+/*********************************
+Banner Divider CSS Ends
+
+Body Content CSS Starts
+*********************************/
+
+.content {
+    width: 100%;
+    text-align: center;
+}
+
+.content-text {
+    font-family: Modern;
+    font-size: 60px;
+}
+
+.content-text-2 {
+    font-family: Nunito;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(73, 73, 73);
+}
+
+.content-text-2 .modern {
+    color: black;
+    font-size: 45px;
+}
+
+.content a {
+    color: var(--red);
+    text-decoration-line: none;
+    text-decoration-color: var(--red);
+}
+
+.content a::hover {
+    text-decoration-line: none;
+    text-decoration-color: var(--red);
+}
+
+.grade {
+    font-family: Nunito;
+    font-size: 35px;
+    height: 90px;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg, rgb(162 197 250) 0%, rgb(162 197 250) 25%, #1e539e 51%, #3366a0 75%, rgb(100, 229, 252) 100%);
+            background-size: 400% 400%;
+    background-size: 400% 400%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    transition: .6s cubic-bezier(.17, .67, .16, .99);
+}
+
+.grade:hover {
+    transform: scale(1.0009);
+    box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, .3);
+    background-position: 100% 100%;
+    transition: .6s cubic-bezier(.17, .67, .16, .99);
+    color: rgb(221, 221, 221) !important;
+}
+
+.content-border {
+    border: solid 1px red;
+}
+
+.content-img {
+    max-width: 700px;
+    padding: 30px;
+}
+
+.icons {
+    width: 50px;
+}
+
+#icon-green {
+    fill: green;
+}
+
+
+/*********************************
+Footer CSS Starts
+*********************************/
+
+footer {
+    width: 100%;
+    font-family: nunito;
+    bottom: 0px;
+    left: 0;
+    background-color: rgb(60, 73, 94);
+    color: rgb(197, 197, 197);
+}
+
+.footer-heading {
+    color: white;
+}
+
+.footer-end {
+    height: 50px;
+    width: 100%;
+    border-top: gray 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@media only screen and (max-width: 480px) {}
+
+@media (max-width: 992px) {
+    .navbar-light {
+        background-color: rgba(162, 197, 250, 1)!important
+    }
+}
+
+@media (max-width: 777px) {
+    .banner-content .banner-text,
+    .content-text {
+        font-size: 45px;
+    }
+    .banner-img {
+        max-width: 75%;
+    }
+    .banner-image {
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .row {
+        justify-content: center;
+    }
+    .grade {
+        max-width: 80%;
+    }
+}
