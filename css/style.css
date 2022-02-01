@@ -59,7 +59,7 @@ html {
     font-family: Nunito;
     width: 100%;
     font-size: 20px;
-    min-height: 80px;
+    min-height: 69px;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -82,6 +82,32 @@ html {
     font-size: 25px;
 }
 
+
+/*************************************
+Navbar Hover Animation
+********************************************/
+nav li{
+    position: relative;
+}
+
+
+nav li::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+nav li:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
 
 /************************************
 Animation for Navbar Toggle in Mobile
@@ -227,6 +253,55 @@ Animation for Navbar Toggle in Mobile
     transition: all .3s;
     margin: 8% 0;
 }
+
+.dropdown-menu{
+    background-color: #a2c5fa;
+    border: none;
+}
+
+ul{
+    border: none;
+}
+
+
+/***********************************
+Navigator CSS Starts
+*************************************/
+
+.navigator{
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    background-color: #cecece;
+    position: fixed;
+    top: 69px;
+    color: black;
+    border-bottom: #b9b9b9b9 solid 1px;
+}
+
+
+.navigator .container{
+    white-space: nowrap;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+.navigator a{
+    color: #616166;
+}
+
+.navigator .container::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
+.navigator a:hover{
+    color: rgb(60, 130, 235) !important;
+    text-decoration: underline!important;
+}
+
+
 
 
 /***********************************
@@ -426,14 +501,11 @@ Body Content CSS Starts
     width: 50px;
 }
 
-#icon-green {
-    fill: green;
-}
 
 
-/*********************************
-Footer CSS Starts
-*********************************/
+
+
+
 
 footer {
     width: 100%;
@@ -458,18 +530,49 @@ footer {
     color: white;
 }
 
+
+
+/*********************************
+Other Sites css
+*********************************/
+
+.other-banner {
+    width: 100%;
+    background: url(../img/gradient.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    align-content: center;
+}
+
+
+
+
+
 @media only screen and (max-width: 480px) {}
 
 @media (max-width: 992px) {
     .navbar-light {
         background-color: rgba(162, 197, 250, 1)!important
     }
+
+    nav li::after {
+        left:0%;
+        }
+        
+    nav li:hover::after {
+        width: 30%;
+        left: 0%;
+    }
 }
 
 @media (max-width: 777px) {
     .banner-content .banner-text,
-    .content-text {
+    .content-text, .content-text-2 .modern {
         font-size: 45px;
+    }
+    .content-text-2{
+        font-size: 25px;
     }
     .banner-img {
         max-width: 75%;
@@ -485,5 +588,8 @@ footer {
     }
     .grade {
         max-width: 80%;
+    }
+    .footer{
+        font-size: 13.5px;
     }
 }
